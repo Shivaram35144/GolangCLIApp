@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"booking-app/notmain"
+	"fmt"
+	"strconv"
+	"time"
+)
 
 func main() {
 	var confName = "Go lang Conference"
@@ -103,18 +108,94 @@ func main() {
 	//functions
 
 	x,y := greet(username)
-	x+=1
-	y+=2
 
 
 	fmt.Println("---------------------------------")
 
+	//fn from helper.go
+
+	ad,sub,mul,div := maths(x,y)
+	fmt.Println(ad,sub,mul,div)
+	
+	fmt.Println("---------------------------------")
+
+	//fn from diffpack.go
+
+	fmt.Println(notmain.Notmainadd(10,20))
+
+	//maps
+
+	var bookingMap = make(map[string]int)
+
+	bookingMap["user1"] = 10
+	bookingMap["user2"] = 20
+
+	fmt.Println(bookingMap)
+	fmt.Println(bookingMap["user1"])
+
+	fmt.Println("---------------------------------")
+	// type conversions
+
+	var a int = 10
+	var b float64 = 20.5
+
+	var c float64 = float64(a) + b
+
+	fmt.Println(c)
+
+	var d string = "10"
+	var e int = 20
+
+
+	f, _ := strconv.Atoi(d)
+	fmt.Println(f+e)
+
+	fmt.Println("---------------------------------")
+
+	// structs
+
+	type User struct {
+		name string
+		age int
+
+	}
+
+	var user1 User = User{"John", 25}
+	fmt.Println(user1)
+
+	var user2 User
+	user2.name = "Doe"
+	user2.age = 30
+
+	fmt.Println("---------------------------------")
+
+
+	// concurrency - Groutines
+
+
+	for {
+		var name string
+		var age int
+
+		fmt.Printf("Name: ")
+		fmt.Scan((&name)) 
+
+		fmt.Printf("Age: ")
+		fmt.Scan(&age)
+
+		go groutine(name, age)
+
+	}
 
 
 
 
+}
 
-
+func groutine(name string, age int) {
+	time.Sleep(5 * time.Second)
+	fmt.Println("Name: ", name)
+	fmt.Println("Age: ", age)
 }
 
 

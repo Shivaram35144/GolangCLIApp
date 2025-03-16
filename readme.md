@@ -9,3 +9,10 @@ go mod init <name>
 ```
 go run main.go
 ```
+
+
+## To run all
+
+```
+go run .
+```
