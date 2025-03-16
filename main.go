@@ -59,12 +59,68 @@ func main() {
      
 	fmt.Println("---------------------------------")
 
-	//
+	// if else
+
+	if totalSeats > 25 {
+		fmt.Println("Seats Available")
+	} else if totalSeats <=25 && totalSeats > 0 {
+		fmt.Println("Seats Limited")
+	} else {
+		fmt.Println("Seats Not Available")
+	}
+
+	fmt.Println("---------------------------------")
+
+	//switch case
+
+	switch totalSeats {
+	case 100:
+		fmt.Println("Seats Full")
+	case 50:
+		fmt.Println("Seats Half Full")
+	default:
+		fmt.Println("Seats Not Available")
+	}
+
+	fmt.Println("---------------------------------")
+
+	// input validation
+
+	var age int
+	fmt.Printf("Enter your age: ")
+	fmt.Scan(&age)
+
+	isvalidAge := age > 18
+
+	if isvalidAge {
+		fmt.Println("You are eligible")
+	} else {
+		fmt.Println("You are not eligible")
+	}
+
+	fmt.Println("---------------------------------")
+
+	//functions
+
+	x,y := greet(username)
+	x+=1
+	y+=2
 
 
-	
+	fmt.Println("---------------------------------")
 
 
 
 
+
+
+
+}
+
+
+func greet(username string) (int, int) {
+	fmt.Println("Hello ",username)
+	var ret1 int  = 10
+	var ret2 int = 20
+	return ret1, ret2
 }
